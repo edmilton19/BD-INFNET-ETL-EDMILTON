@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: consumo
+    database: intense-clarity-505217-k6
+    schema: globalstream_dw
+
+    tables:
+      - name: dim_cliente
+      - name: dim_loja_canal
+      - name: fato_vendas
+      - name: dim_tempo
+      - name: dim_produto
+      - name: pedidos_desnormalizados
