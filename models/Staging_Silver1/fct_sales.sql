@@ -11,7 +11,7 @@ WITH pedidos AS (
 vendas AS (
     SELECT 
         sk_venda,
-        id_pedido,
+        id_pedido_bk AS id_pedido,
         id_produto,
         quantidade,
         preco_unitario,
