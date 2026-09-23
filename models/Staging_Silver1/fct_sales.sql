@@ -1,5 +1,3 @@
-SELECT *
-FROM {{ ref('stg_globalstream__dim_cliente') }}
 WITH pedidos AS (
     SELECT 
         id_pedido_bk AS id_pedido,
