@@ -15,10 +15,7 @@ vendas AS (
         sk_produto AS id_produto,
         quantidade,
         preco_unitario,
-        custo_unitario,
-        (quantidade * preco_unitario) AS receita_bruta,
-        (quantidade * custo_unitario) AS custo_total,
-        ((quantidade * preco_unitario) - (quantidade * custo_unitario)) AS lucro_bruto
+        (quantidade * preco_unitario) AS receita_bruta
     FROM {{ source('consumo', 'fato_vendas') }}
 )
 
@@ -31,9 +28,6 @@ SELECT
     p.canal_venda,
     v.quantidade,
     v.preco_unitario,
-    v.custo_unitario,
-    v.receita_bruta,
-    v.custo_total,
-    v.lucro_bruto
+    v.receita_bruta
 FROM vendas v
 LEFT JOIN pedidos p ON v.id_pedido = p.id_pedido
