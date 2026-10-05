@@ -40,3 +40,7 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+
+
+vars:
+  taxa_imposto: 0.15

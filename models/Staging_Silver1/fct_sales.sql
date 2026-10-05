@@ -31,3 +31,9 @@ SELECT
     v.receita_bruta
 FROM vendas v
 LEFT JOIN pedidos p ON v.id_pedido = p.id_pedido
+
+SELECT
+    *,
+    (quantidade * preco_unitario) AS receita_bruta,
+    ((quantidade * preco_unitario) * {{ var('taxa_imposto') }}) AS valor_imposto
+FROM {{ source('consumo', 'fato_vendas') }}
